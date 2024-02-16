@@ -9,9 +9,9 @@ import { allCategory } from './api/rakuten/categoryData'
 import { getTests } from '@/features/test/api/getTests'
 
 export default async function Home() {
-    // const tests = await getTests()
-    // const category = await fetchAllCategory()
-    // console.log(category.result.large)
+    const tests = await getTests()
+    const category = await fetchAllCategory()
+    console.log(category.result.large)
     const randomCategoryNumber = Math.floor(Math.random() * allCategory.length)
     const ranking = await fetchRankingTop4ByCategoryId(
         allCategory[randomCategoryNumber].categoryId,
@@ -22,6 +22,7 @@ export default async function Home() {
     // console.log(todayRecipe)
     return (
         <div className="m-[16px]">
+            <p>{tests[0].text}</p>
             <h1 className="mb-[16px] text-[32px] font-bold text-gray-700">
                 今日作る{categoryName}は・・・
             </h1>
