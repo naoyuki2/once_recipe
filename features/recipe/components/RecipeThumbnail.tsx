@@ -11,7 +11,6 @@ const RecipeThumbnail = ({ foodImageUrl }: Props) => {
                 src={foodImageUrl}
                 alt="food image"
                 fill
-                objectFit="cover"
                 priority
                 className="border-[8px] border-neutral-300 rounded-[12px]"
             />

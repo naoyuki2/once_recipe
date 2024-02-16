@@ -11,10 +11,12 @@ export const fetchAllCategory = async () => {
     }
 }
 
-export const fetchRanking = async () => {
+export const fetchRankingTop4ByCategoryId = async (categoryId: number) => {
     try {
         const res = await fetch(
-            `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?format=json&applicationId=${process.env.RAKUTEN_APP_ID}`,
+            `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?format=json&applicationId=${process.env.RAKUTEN_APP_ID}
+            &categoryId=${categoryId}
+            `,
         )
         const data = await res.json()
         return data

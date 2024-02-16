@@ -3,7 +3,7 @@ type Props = {
 }
 
 const RecipeTitle = ({ title }: Props) => {
-    return <div className="text-[32px] font-bold text-gray-700">{title}</div>
+    return <div className="text-[24px] font-bold text-gray-700">{title}</div>
 }
 
 export default RecipeTitle
