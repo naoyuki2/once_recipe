@@ -22,7 +22,7 @@ export default async function Home() {
     // console.log(todayRecipe)
     return (
         <div className="m-[16px]">
-            <p>{tests[0].text}</p>
+            <p>{tests && <p>{tests[0].text}</p>}</p>
             <h1 className="mb-[16px] text-[32px] font-bold text-gray-700">
                 今日作る{categoryName}は・・・
             </h1>
