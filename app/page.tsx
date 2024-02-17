@@ -1,22 +1,13 @@
 import RecipeThumbnail from '@/features/recipe/components/RecipeThumbnail'
-import {
-    fetchAllCategory,
-    fetchRankingTop4ByCategoryId,
-} from './api/rakuten/dataFetch'
 import RecipeTitle from '@/features/recipe/components/RecipeTitle'
 import RecipeDetailButton from '@/features/recipe/components/RecipeDetailButton'
-import { allCategory } from './api/rakuten/categoryData'
 import { getTests } from '@/features/test/api/getTests'
+import { getCategoryName, getTodayRecipe } from './utils/recipe'
 
 export default async function Home() {
     const tests = await getTests()
-    const randomCategoryNumber = Math.floor(Math.random() * allCategory.length)
-    const ranking = await fetchRankingTop4ByCategoryId(
-        allCategory[randomCategoryNumber].categoryId,
-    )
-    const randomRecipeNumber = Math.floor(Math.random() * 4)
-    const todayRecipe = ranking.result[randomRecipeNumber]
-    const categoryName = allCategory[randomCategoryNumber].categoryName
+    const todayRecipe = await getTodayRecipe()
+    const categoryName = getCategoryName()
     // console.log(todayRecipe)
     return (
         <div className="m-[16px]">
