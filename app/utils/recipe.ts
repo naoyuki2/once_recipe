@@ -13,9 +13,9 @@ export const getTodayRanking = async () => {
     return ranking
 }
 
-export const getTodayRecipe = (ranking: any) => {
-    return ranking.result[randomRecipeNumber]
-}
+// export const getTodayRecipe = (ranking: any) => {
+//     return ranking.result[randomRecipeNumber]
+// }
 
 export const getCategoryName = () => {
     const categoryName = allCategory[randomCategoryNumber].categoryName
