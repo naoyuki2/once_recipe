@@ -11,10 +11,7 @@ export const getTodayRecipe = async () => {
             `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?format=json&applicationId=${process.env.RAKUTEN_APP_ID}`,
         )
         const data = await res.json()
-        if (!data) {
-            throw new Error('invalid data')
-        }
-        return data.result[randomRecipeNumber]
+        return data
     } catch (error) {
         console.error(error)
         throw new Error('Failed to fetch API')
