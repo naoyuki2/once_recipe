@@ -1,6 +1,6 @@
 import RecipeDetailButton from '@/features/recipe/components/RecipeDetailButton'
 import RecipeWrapper from '@/features/recipe/components/RecipeWrapper'
-import { getCategoryName } from './utils/recipe'
+import { getCategoryName } from '../utils/recipe'
 import { Suspense } from 'react'
 
 export default function Home() {

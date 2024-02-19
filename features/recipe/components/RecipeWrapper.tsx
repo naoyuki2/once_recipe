@@ -1,4 +1,4 @@
-import { getTodayRanking } from '@/app/utils/recipe'
+import { getTodayRanking } from '@/utils/recipe'
 import RecipeThumbnail from './RecipeThumbnail'
 import RecipeTitle from './RecipeTitle'
 
