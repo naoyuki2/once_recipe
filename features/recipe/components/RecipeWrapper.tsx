@@ -6,12 +6,12 @@ const RecipeWrapper = async () => {
     const todayRanking = await getTodayRanking()
     return (
         <>
-            {/* <RecipeThumbnail
+            <RecipeThumbnail
                 foodImageUrl={todayRanking.result[2].foodImageUrl}
-            /> */}
-            {/* <div className="m-[8px]">
+            />
+            <div className="m-[8px]">
                 <RecipeTitle title={todayRanking.result[2].recipeTitle} />
-            </div> */}
+            </div>
         </>
     )
 }
