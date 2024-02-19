@@ -31,7 +31,7 @@ export const getTodayRanking = async () => {
         ) {
             throw new Error('Invalid data')
         }
-        return data.result[0]
+        return data.result[randomRecipeNumber]
     } catch (error) {
         console.error(error)
         throw new Error('Failed to fetch API')
