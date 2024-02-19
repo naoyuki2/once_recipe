@@ -1,22 +1,19 @@
-import RecipeThumbnail from '@/features/recipe/components/RecipeThumbnail'
-import RecipeTitle from '@/features/recipe/components/RecipeTitle'
 import RecipeDetailButton from '@/features/recipe/components/RecipeDetailButton'
-import { getCategoryName, getTodayRecipe } from './utils/recipe'
+import RecipeWrapper from '@/features/recipe/components/RecipeWrapper'
+import { getCategoryName } from './utils/recipe'
+import { Suspense } from 'react'
 
-export default async function Home() {
-    // const todayRecipe = await getTodayRecipe()
+export default function Home() {
     const categoryName = getCategoryName()
-    // if (!todayRecipe) return <div>loading...</div>
     return (
         <div className="m-[16px]">
             <h1 className="mb-[16px] text-[32px] font-bold text-gray-700">
                 今日作る{categoryName}は・・・
             </h1>
-            {/* <RecipeThumbnail foodImageUrl={todayRecipe.foodImageUrl} /> */}
-            <div className="m-[8px]">
-                {/* <RecipeTitle title={todayRecipe.recipeTitle} /> */}
-                <RecipeDetailButton />
-            </div>
+            <Suspense fallback="<p>loading...</p>">
+                <RecipeWrapper />
+            </Suspense>
+            <RecipeDetailButton />
         </div>
     )
 }
