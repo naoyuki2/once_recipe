@@ -11,7 +11,8 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-model Test {
-  id        Int      @id @default(autoincrement())
-  text String
+model archive_recipe {
+  title     String
+  foodImageUrl    String
+  createdAt DateTime @id @default(now())
 }
