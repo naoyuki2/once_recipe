@@ -7,10 +7,10 @@ const RecipeWrapper = async () => {
     return (
         <>
             <RecipeThumbnail
-                foodImageUrl={todayRanking.result[0].foodImageUrl}
+                foodImageUrl={todayRanking!.result[0].foodImageUrl}
             />
             <div className="m-[8px]">
-                <RecipeTitle title={todayRanking.result[0].recipeTitle} />
+                <RecipeTitle title={todayRanking!.result[0].recipeTitle} />
             </div>
         </>
     )
