@@ -1,8 +1,4 @@
-type Props = {
-    title: String
-}
-
-const RecipeTitle = ({ title }: Props) => {
+const RecipeTitle = ({ title }: { title: string }) => {
     return <div className="text-[24px] font-bold text-gray-700">{title}</div>
 }
 

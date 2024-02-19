@@ -3,7 +3,7 @@ import RecipeWrapper from '@/features/recipe/components/RecipeWrapper'
 import { getCategoryName } from '../utils/recipe'
 import { Suspense } from 'react'
 
-export default async function Home() {
+export default async function Page() {
     const categoryName = getCategoryName()
     return (
         <div className="m-[16px]">

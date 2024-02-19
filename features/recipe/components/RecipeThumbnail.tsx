@@ -1,10 +1,6 @@
 import Image from 'next/image'
 
-type Props = {
-    foodImageUrl: string
-}
-
-const RecipeThumbnail = ({ foodImageUrl }: Props) => {
+const RecipeThumbnail = ({ foodImageUrl }: { foodImageUrl: string }) => {
     return (
         <div className="rounded-[20px] bg-neutral-300 w-full relative h-[300px]">
             <Image
