@@ -4,6 +4,9 @@ import RecipeTitle from './RecipeTitle'
 
 const RecipeWrapper = async () => {
     const todayRanking = await getTodayRanking()
+    if (typeof todayRanking !== 'undefined') {
+        return <div>loading...</div>
+    }
     return (
         <>
             <RecipeThumbnail
