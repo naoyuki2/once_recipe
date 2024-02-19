@@ -1,5 +1,4 @@
 import { allCategory } from './categoryData'
-import { fetchRankingTop4ByCategoryId } from './dataFetch'
 
 // const randomCategoryNumber = Math.floor(Math.random() * allCategory.length)
 // const randomRecipeNumber = Math.floor(Math.random() * 4)
@@ -7,15 +6,19 @@ const randomCategoryNumber = 0 // OK
 const randomRecipeNumber = 2
 
 export const getTodayRanking = async () => {
-    const ranking = await fetchRankingTop4ByCategoryId(
-        allCategory[randomCategoryNumber].categoryId,
-    )
-    return ranking
+    try {
+        const res = await fetch(
+            `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?format=json&applicationId=${process.env.RAKUTEN_APP_ID}
+            &categoryId=${allCategory[randomCategoryNumber].categoryId}
+            `,
+        )
+        const data = await res.json()
+        return data
+    } catch (error) {
+        console.error(error)
+        throw new Error('Failed to fetch API')
+    }
 }
-
-// export const getTodayRecipe = (ranking: any) => {
-//     return ranking.result[randomRecipeNumber]
-// }
 
 export const getCategoryName = () => {
     const categoryName = allCategory[randomCategoryNumber].categoryName
