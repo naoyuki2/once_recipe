@@ -23,6 +23,14 @@ export const getTodayRanking = async () => {
             `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?format=json&applicationId=${process.env.RAKUTEN_APP_ID}`,
         )
         const data = await res.json()
+        if (
+            !data ||
+            !data.result ||
+            !Array.isArray(data.result) ||
+            data.result.length === 0
+        ) {
+            throw new Error('Invalid data')
+        }
         return data.result[0]
     } catch (error) {
         console.error(error)
