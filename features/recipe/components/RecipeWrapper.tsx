@@ -4,6 +4,7 @@ import RecipeTitle from './RecipeTitle'
 
 const RecipeWrapper = async () => {
     const todayRanking = await getTodayRanking()
+    console.log(todayRanking.result[2].recipeTitle)
     return (
         <>
             <RecipeThumbnail
