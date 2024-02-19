@@ -12,7 +12,7 @@ export const getTodayRanking = async () => {
         )
         const data = await res.json()
         if (!data || !data.result) {
-            throw new Error(data)
+            throw new Error(data.result)
         }
         return data.result
     } catch (error) {
