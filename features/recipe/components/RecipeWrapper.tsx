@@ -3,7 +3,7 @@ import RecipeThumbnail from './RecipeThumbnail'
 import RecipeTitle from './RecipeTitle'
 
 const RecipeWrapper = async () => {
-    // const todayRecipe = await getTodayRanking()
+    const todayRecipe = await getTodayRanking()
     return (
         <>
             {/* <RecipeThumbnail foodImageUrl={todayRecipe.foodImageUrl} /> */}
