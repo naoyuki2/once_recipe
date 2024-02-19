@@ -8,7 +8,7 @@ const RecipeWrapper = async () => {
         <>
             {/* <RecipeThumbnail foodImageUrl={todayRecipe.foodImageUrl} /> */}
             <div className="m-[8px]">
-                {/* <RecipeTitle title={todayRecipe.recipeTitle} /> */}
+                <RecipeTitle title={todayRecipe.result[0].recipeTitle} />
                 <RecipeTitle title="test" />
             </div>
         </>
