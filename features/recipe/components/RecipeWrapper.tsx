@@ -1,9 +1,10 @@
-import { getTodayRecipe } from '@/app/utils/recipe'
+import { getTodayRanking, getTodayRecipe } from '@/app/utils/recipe'
 import RecipeThumbnail from './RecipeThumbnail'
 import RecipeTitle from './RecipeTitle'
 
 const RecipeWrapper = async () => {
-    const todayRecipe = await getTodayRecipe()
+    const todayRanking = await getTodayRanking()
+    const todayRecipe = getTodayRecipe(todayRanking)
     return (
         <>
             <RecipeThumbnail foodImageUrl={todayRecipe.foodImageUrl} />

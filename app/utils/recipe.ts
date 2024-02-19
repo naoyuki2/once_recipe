@@ -3,15 +3,18 @@ import { fetchRankingTop4ByCategoryId } from '../api/rakuten/dataFetch'
 
 // const randomCategoryNumber = Math.floor(Math.random() * allCategory.length)
 // const randomRecipeNumber = Math.floor(Math.random() * 4)
-const randomCategoryNumber = 1
+const randomCategoryNumber = 0 // OK
 const randomRecipeNumber = 2
 
-export const getTodayRecipe = async () => {
+export const getTodayRanking = async () => {
     const ranking = await fetchRankingTop4ByCategoryId(
         allCategory[randomCategoryNumber].categoryId,
     )
-    const todayRecipe = ranking.result[randomRecipeNumber]
-    return todayRecipe
+    return ranking
+}
+
+export const getTodayRecipe = (ranking: any) => {
+    return ranking.result[randomRecipeNumber]
 }
 
 export const getCategoryName = () => {
