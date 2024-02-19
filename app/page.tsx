@@ -5,9 +5,8 @@ import { Suspense } from 'react'
 import { getTodayRecipe } from '@/utils/recipe'
 
 export default async function Page() {
-    const todayRanking = await getTodayRecipe()
-    const todayRecipe = todayRanking?.result[0]
-    console.log(todayRecipe)
+    // const todayRanking = await getTodayRecipe()
+    // const todayRecipe = todayRanking?.result[0]
     return (
         <div className="m-[16px]">
             <RecipeHeader />
