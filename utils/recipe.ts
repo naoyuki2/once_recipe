@@ -1,5 +1,5 @@
-import { allCategory } from '../app/api/rakuten/categoryData'
-import { fetchRankingTop4ByCategoryId } from '../app/api/rakuten/dataFetch'
+import { allCategory } from './categoryData'
+import { fetchRankingTop4ByCategoryId } from './dataFetch'
 
 // const randomCategoryNumber = Math.floor(Math.random() * allCategory.length)
 // const randomRecipeNumber = Math.floor(Math.random() * 4)
