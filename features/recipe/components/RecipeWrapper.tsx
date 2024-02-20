@@ -1,4 +1,4 @@
-import { getTodayRecipe } from '@/utils/recipe'
+import { getTodayRecipe } from '../api/getTodayRecipe'
 import RecipeThumbnail from './RecipeThumbnail'
 import RecipeTitle from './RecipeTitle'
 
