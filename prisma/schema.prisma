@@ -12,7 +12,7 @@ datasource db {
 }
 
 model archive_recipe {
-  title     String
+  recipeTitle     String
   foodImageUrl    String
   createdAt DateTime @id @default(now())
 }

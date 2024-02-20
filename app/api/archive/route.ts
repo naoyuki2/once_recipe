@@ -35,3 +35,22 @@ export async function GET() {
         return NextResponse.json(error)
     }
 }
+
+export async function POST(request: Request) {
+    const body = await request.json()
+    console.log(body)
+    // archive_recipeテーブルに今日のレシピを保存
+    try {
+        const archive_today_recipe: archive_recipe =
+            await prisma.archive_recipe.create({
+                data: {
+                    recipeTitle: body.recipeTitle,
+                    foodImageUrl: body.foodImageUrl,
+                },
+            })
+
+        return NextResponse.json(archive_today_recipe)
+    } catch (error) {
+        return NextResponse.json(error)
+    }
+}
