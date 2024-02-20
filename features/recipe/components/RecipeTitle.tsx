@@ -1,6 +1,6 @@
 const RecipeTitle = ({ recipeTitle }: { recipeTitle: string }) => {
     return (
-        <div className="my-[24px] text-[24px] font-bold text-gray-700">
+        <div className="my-[24px] text-[16px] md:text-[20px] font-bold text-gray-700">
             {recipeTitle}
             <hr />
         </div>

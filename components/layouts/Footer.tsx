@@ -6,10 +6,10 @@ import Link from 'next/link'
 const Footer = () => {
     return (
         <div className="p-5 h-full bg-stone-500 flex flex-col items-center justify-center gap-[24px]">
-            <p className="text-gray-100 font-bold text-[16px]">
+            <p className="text-gray-100 font-bold text-[16px] md:text-[20px]">
                 This site uses Rakuten API
             </p>
-            <p className="text-gray-100 font-bold text-[16px]">
+            <p className="text-gray-100 font-bold text-[16px] md:text-[20px]">
                 Created by naoyuki
             </p>
             <div className="flex gap-[32px]">
