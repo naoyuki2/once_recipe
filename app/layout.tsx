@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layouts/Header'
+import Footer from '@/components/layouts/Footer'
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'], weight: ['400'] })
 
@@ -17,9 +18,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="ja">
-            <body className={notoSansJP.className}>
+            <body
+                className={`${notoSansJP.className} flex flex-col min-h-screen`}
+            >
                 <Header />
-                {children}
+                <div className="flex-grow">{children}</div>
+                <Footer />
             </body>
         </html>
     )

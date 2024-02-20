@@ -44,8 +44,13 @@ export async function POST(request: Request) {
         const archive_today_recipe: archive_recipe =
             await prisma.archive_recipe.create({
                 data: {
-                    recipeTitle: body.recipeTitle,
                     foodImageUrl: body.foodImageUrl,
+                    recipeTitle: body.recipeTitle,
+                    recipeDescription: body.recipeDescription,
+                    recipeIndication: body.recipeIndication,
+                    recipeCost: body.recipeCost,
+                    recipeMaterial: body.recipeMaterial,
+                    recipeUrl: body.recipeUrl,
                 },
             })
 

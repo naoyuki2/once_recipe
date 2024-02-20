@@ -7,8 +7,13 @@ export const postArchive = async (todayRecipe: any) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                recipeTitle: todayRecipe.recipeTitle,
                 foodImageUrl: todayRecipe.foodImageUrl,
+                recipeTitle: todayRecipe.recipeTitle,
+                recipeDescription: todayRecipe.recipeDescription,
+                recipeIndication: todayRecipe.recipeIndication,
+                recipeCost: todayRecipe.recipeCost,
+                recipeMaterial: todayRecipe.recipeMaterial,
+                recipeUrl: todayRecipe.recipeUrl,
             }),
         })
         return res
