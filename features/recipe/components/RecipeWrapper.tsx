@@ -21,7 +21,7 @@ const RecipeWrapper = async () => {
             <RecipeCost recipeCost={todayRecipe.recipeCost} />
             <RecipeMaterial recipeMaterial={todayRecipe.recipeMaterial} />
             <div className="flex justify-between">
-                <RecipeKeep todayRecipe={todayRecipe} />
+                <RecipeKeep recipeId={todayRecipe.Id} />
                 <RecipeDetailButton recipeUrl={todayRecipe.recipeUrl} />
             </div>
         </>

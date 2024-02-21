@@ -1,11 +1,10 @@
 'use server'
 
-import { postRecipeKeep } from '@/features/recipe/api/postRecipeKeep'
-import { archive_recipe } from '@prisma/client'
+import { postBookmark } from '@/features/bookmark/api/postBookmark'
 import { redirect } from 'next/navigation'
 
-export async function navigateBookmark(todayRecipe: archive_recipe) {
-    const res = await postRecipeKeep(todayRecipe)
+export async function navigateBookmark(recipeId: number, userId: string) {
+    const res = await postBookmark({ recipeId, userId })
     if (res.ok) {
         // revalidatePath('/bookmark')
         redirect('/bookmark')

@@ -24,7 +24,7 @@ export default function RootLayout({
             >
                 <NextAuthProvider>
                     <Header />
-                    <div className="flex-grow">{children}</div>
+                    <div className="flex-grow m-[16px]">{children}</div>
                     <Footer />
                 </NextAuthProvider>
             </body>
