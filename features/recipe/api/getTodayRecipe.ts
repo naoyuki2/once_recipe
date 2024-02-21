@@ -5,7 +5,7 @@ import { fetchRakutenRecipe } from '@/features/rakuten/api/getRakutenRecipe'
 
 export const getTodayRecipe = async () => {
     let todayRecipe = await getArchive()
-    console.log('archive見に行く')
+    console.log('archive見に行ってきた')
     console.log(todayRecipe)
     if (isEmpty(todayRecipe)) {
         todayRecipe = await fetchRakutenRecipe()

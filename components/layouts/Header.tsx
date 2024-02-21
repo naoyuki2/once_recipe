@@ -8,10 +8,9 @@ import default_icon from '@/public/default_icon.png'
 const Header = async () => {
     const session = await getServerSession(nextAuthOptions)
     const user = session?.user as UserType
-    console.log(user)
     return (
         <header className="bg-gradient-to-r from-orange-500 to-amber-500">
-            <nav className="flex items-center justify-between p-4">
+            <nav className="flex items-center justify-between p-2">
                 <div>ロゴ</div>
                 <div className="flex items-center gap-1">
                     <Link

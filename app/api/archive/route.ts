@@ -1,36 +1,28 @@
-import { archive_recipe } from '@prisma/client'
+import { Archive, Recipe } from '@prisma/client'
 import prisma from '@/lib/prisma/prisma'
 import { NextResponse } from 'next/server'
+import { endOfDay, startOfDay } from '@/utils/calcDate'
 
 export async function GET() {
     try {
-        const today = new Date()
-        const startOfDay = new Date(
-            Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()),
-        )
-        const endOfDay = new Date(
-            Date.UTC(
-                today.getFullYear(),
-                today.getMonth(),
-                today.getDate(),
-                23,
-                59,
-                59,
-                999,
-            ),
-        )
-        console.log(startOfDay)
-        console.log(endOfDay)
-        const archive_today_recipe: archive_recipe[] =
-            await prisma.archive_recipe.findMany({
+        const [archive_today_recipe]: { RecipeId: number }[] =
+            await prisma.archive.findMany({
+                select: {
+                    RecipeId: true,
+                },
                 where: {
-                    createdAt: {
+                    CreatedAt: {
                         gte: startOfDay,
                         lte: endOfDay,
                     },
                 },
             })
-        return NextResponse.json(archive_today_recipe[0])
+        const todayRecipe: Recipe | null = await prisma.recipe.findUnique({
+            where: {
+                Id: archive_today_recipe.RecipeId,
+            },
+        })
+        return NextResponse.json(todayRecipe)
     } catch (error) {
         return NextResponse.json(error)
     }
@@ -38,23 +30,29 @@ export async function GET() {
 
 export async function POST(request: Request) {
     const body = await request.json()
-    console.log(body)
-    // archive_recipeテーブルに今日のレシピを保存
     try {
-        const archive_today_recipe: archive_recipe =
-            await prisma.archive_recipe.create({
-                data: {
-                    foodImageUrl: body.foodImageUrl,
-                    recipeTitle: body.recipeTitle,
-                    recipeDescription: body.recipeDescription,
-                    recipeIndication: body.recipeIndication,
-                    recipeCost: body.recipeCost,
-                    recipeMaterial: body.recipeMaterial,
-                    recipeUrl: body.recipeUrl,
-                },
-            })
+        const postRecipeId: { Id: number } = await prisma.recipe.create({
+            select: {
+                Id: true,
+            },
+            data: {
+                foodImageUrl: body.foodImageUrl,
+                recipeTitle: body.recipeTitle,
+                recipeDescription: body.recipeDescription,
+                recipeIndication: body.recipeIndication,
+                recipeCost: body.recipeCost,
+                recipeMaterial: body.recipeMaterial,
+                recipeUrl: body.recipeUrl,
+            },
+        })
 
-        return NextResponse.json(archive_today_recipe)
+        const postArchive: Archive = await prisma.archive.create({
+            data: {
+                RecipeId: postRecipeId.Id,
+            },
+        })
+
+        return NextResponse.json(postArchive)
     } catch (error) {
         return NextResponse.json(error)
     }

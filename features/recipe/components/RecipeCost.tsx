@@ -1,4 +1,4 @@
-const RecipeTitle = ({ recipeCost }: { recipeCost: string }) => {
+const recipeCost = ({ recipeCost }: { recipeCost: string }) => {
     return (
         <div className="my-[24px] text-[16px] text-gray-700 md:text-[20px]">
             費用目安：{recipeCost}
@@ -7,4 +7,4 @@ const RecipeTitle = ({ recipeCost }: { recipeCost: string }) => {
     )
 }
 
-export default RecipeTitle
+export default recipeCost

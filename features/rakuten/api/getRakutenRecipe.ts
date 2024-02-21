@@ -16,6 +16,6 @@ export const fetchRakutenRecipe = async () => {
         return data.result[randomRecipeNumber]
     } catch (error) {
         console.error(error)
-        throw new Error('Failed to fetch API')
+        throw new Error('Failed to fetch RAKUTEN API')
     }
 }

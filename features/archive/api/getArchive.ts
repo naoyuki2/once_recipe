@@ -8,6 +8,6 @@ export const getArchive = async () => {
         return data
     } catch (error) {
         console.error(error)
-        throw new Error('Failed to fetch API')
+        throw new Error('Failed to fetch Archive API')
     }
 }
