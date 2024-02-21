@@ -6,6 +6,10 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'image.space.rakuten.co.jp',
             },
+            {
+                protocol: 'https',
+                hostname: 'lh3.googleusercontent.com',
+            },
         ],
     },
 }
