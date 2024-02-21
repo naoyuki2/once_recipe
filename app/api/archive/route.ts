@@ -1,5 +1,5 @@
 import { archive_recipe } from '@prisma/client'
-import prisma from '@/lib/prisma'
+import prisma from '@/lib/prisma/prisma'
 import { NextResponse } from 'next/server'
 
 export async function GET() {

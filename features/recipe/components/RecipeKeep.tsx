@@ -11,7 +11,7 @@ const RecipeDetailButton = ({
     return (
         <div className="flex justify-end">
             <Link
-                href="/keep"
+                href="/login"
                 className="bg-yellow-500 px-[24px] py-[8px] text-gray-100 rounded-[12px] text-[16px] md:text-[20px] text-center"
             >
                 レシピを保存
