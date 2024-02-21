@@ -6,6 +6,7 @@ import RecipeDescription from './RecipeDescription'
 import RecipeTime from './RecipeTime'
 import RecipeCost from './RecipeCost'
 import RecipeMaterial from './RecipeMaterial'
+import RecipeKeep from './RecipeKeep'
 
 const RecipeWrapper = async () => {
     const todayRecipe = await getTodayRecipe()
@@ -19,7 +20,10 @@ const RecipeWrapper = async () => {
             <RecipeTime recipeIndication={todayRecipe.recipeIndication} />
             <RecipeCost recipeCost={todayRecipe.recipeCost} />
             <RecipeMaterial recipeMaterial={todayRecipe.recipeMaterial} />
-            <RecipeDetailButton recipeUrl={todayRecipe.recipeUrl} />
+            <div className="flex justify-between">
+                <RecipeKeep todayRecipe={todayRecipe} />
+                <RecipeDetailButton recipeUrl={todayRecipe.recipeUrl} />
+            </div>
         </>
     )
 }
