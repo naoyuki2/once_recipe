@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
 import './globals.css'
+import { ClerkProvider } from '@clerk/nextjs'
 import Header from '@/components/layouts/Header'
 import Footer from '@/components/layouts/Footer'
 
@@ -17,14 +18,16 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="ja">
-            <body
-                className={`${notoSansJP.className} flex flex-col min-h-screen`}
-            >
-                <Header />
-                <div className="flex-grow">{children}</div>
-                <Footer />
-            </body>
-        </html>
+        <ClerkProvider>
+            <html lang="ja">
+                <body
+                    className={`${notoSansJP.className} flex flex-col min-h-screen`}
+                >
+                    <Header />
+                    <div className="flex-grow">{children}</div>
+                    <Footer />
+                </body>
+            </html>
+        </ClerkProvider>
     )
 }
