@@ -1,50 +1,36 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import default_icon from '@/public/default_icon.png'
 import { getUser } from '@/utils/getUser'
+import once_recipe_text from '@/public/once_recipe_text.png'
 
 const Header = async () => {
     const user = await getUser()
     return (
-        <header className="bg-gradient-to-r from-orange-500 to-amber-500">
-            <nav className="flex items-center justify-between p-2">
-                <div>ロゴ</div>
-                <div className="flex items-center gap-1">
-                    <Link
-                        //next-authで用意されている
-                        href={
-                            user !== 'guest' ? '/bookmark' : '/api/auth/signin'
-                        }
-                        className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                        {user !== 'guest' ? 'ブックマーク' : 'ログイン'}
-                    </Link>
-                    {user !== 'guest' ? (
-                        <Link
-                            //next-authで用意されている
-                            href={'/api/auth/signout'}
-                            className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                        >
-                            ログアウト
-                        </Link>
-                    ) : (
-                        ''
-                    )}
+        <header className="bg-[#eaeced] text-[#191c1d] h-[66px] p-2">
+            <nav className="flex items-center justify-between">
+                <Link href="/" className="flex items-center">
+                    <Image
+                        width={150}
+                        height={100}
+                        alt="once_recipe_text"
+                        src={once_recipe_text}
+                        className="cursor-pointer"
+                    />
+                </Link>
 
-                    <Link href={user ? '/profile' : '/api/auth/signin'}>
+                {user !== 'guest' && user.image ? (
+                    <div className="flex items-center">
                         <Image
                             width={50}
                             height={50}
                             alt="profile_icon"
-                            src={
-                                user === 'guest' || !user?.image
-                                    ? default_icon
-                                    : user.image
-                            }
+                            src={user.image}
                             className="rounded-full"
                         />
-                    </Link>
-                </div>
+                    </div>
+                ) : (
+                    <div className="w-[50px] h-[50px]"></div>
+                )}
             </nav>
         </header>
     )

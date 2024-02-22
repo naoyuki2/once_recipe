@@ -5,11 +5,16 @@ import Link from 'next/link'
 
 const Footer = () => {
     return (
-        <div className="p-5 h-full bg-stone-500 flex flex-col items-center justify-center gap-[24px]">
-            <p className="text-gray-100 font-bold text-[16px] md:text-[20px]">
-                This site uses Rakuten API
+        <div className="p-5 h-full bg-[#e1e3e4] text-[#40484c] flex flex-col items-center justify-center gap-[24px] mb-[66px]">
+            <p className="font-bold text-[16px] md:text-[20px] hover:underline">
+                {/* Rakuten Web Services Attribution Snippet FROM HERE */}
+
+                <a href="https://developers.rakuten.com/" target="_blank">
+                    Supported by Rakuten Developers
+                </a>
+                {/* Rakuten Web Services Attribution Snippet TO HERE */}
             </p>
-            <p className="text-gray-100 font-bold text-[16px] md:text-[20px]">
+            <p className=" font-bold text-[16px] md:text-[20px]">
                 Created by naoyuki
             </p>
             <div className="flex gap-[32px]">
