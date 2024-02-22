@@ -5,4 +5,16 @@ type UserType = {
     image?: string | null | undefined
 }
 
-export type { UserType }
+type RecipeNonJsonType = {
+    Id: number
+    recipeTitle: string
+    recipeDescription: string
+    recipeIndication: string
+    recipeCost: string
+    recipeMaterial: string[]
+    recipeUrl: string
+    foodImageUrl: string
+    createdAt: string
+}
+
+export type { UserType, RecipeNonJsonType }

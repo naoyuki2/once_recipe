@@ -12,12 +12,14 @@ const Header = async () => {
                 <div className="flex items-center gap-1">
                     <Link
                         //next-authで用意されている
-                        href={user ? '/profile' : '/api/auth/signin'}
+                        href={
+                            user !== 'guest' ? '/bookmark' : '/api/auth/signin'
+                        }
                         className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
-                        {user ? 'プロフィール' : 'ログイン'}
+                        {user !== 'guest' ? 'ブックマーク' : 'ログイン'}
                     </Link>
-                    {user ? (
+                    {user !== 'guest' ? (
                         <Link
                             //next-authで用意されている
                             href={'/api/auth/signout'}

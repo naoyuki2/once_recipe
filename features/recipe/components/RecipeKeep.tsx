@@ -11,7 +11,7 @@ const RecipeDetailButton = async ({ recipeId }: { recipeId: number }) => {
     )
     return (
         <>
-            {userId ? (
+            {userId !== 'guest' ? (
                 <form
                     action={navigateBookmarkWithRecipe}
                     className="flex justify-end"

@@ -7,9 +7,10 @@ import RecipeTime from './RecipeTime'
 import RecipeCost from './RecipeCost'
 import RecipeMaterial from './RecipeMaterial'
 import RecipeKeep from './RecipeKeep'
+import { RecipeNonJsonType } from '@/types/type'
 
 const RecipeWrapper = async () => {
-    const todayRecipe = await getTodayRecipe()
+    const todayRecipe: RecipeNonJsonType = await getTodayRecipe()
     return (
         <>
             <RecipeThumbnail foodImageUrl={todayRecipe.foodImageUrl} />

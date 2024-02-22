@@ -14,7 +14,7 @@ export async function GET(
                 RecipeId: true,
             },
             where: {
-                UserId: 'clsvkavfh0000qvpmcqq4i4py',
+                UserId: userId,
             },
         })
         const bookmarkIds: number[] = bookmarks.map(
