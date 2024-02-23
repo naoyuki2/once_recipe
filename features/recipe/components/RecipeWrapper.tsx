@@ -14,24 +14,28 @@ type Props = {
 
 const RecipeWrapper = async ({ convertTodayRecipe }: Props) => {
     return (
-        <>
+        <div className="xl:flex xl:gap-[25px]">
             <RecipeThumbnail foodImageUrl={convertTodayRecipe.foodImageUrl} />
-            <RecipeTitle recipeTitle={convertTodayRecipe.recipeTitle} />
-            <RecipeDescription
-                recipeDescription={convertTodayRecipe.recipeDescription}
-            />
-            <RecipeTime
-                recipeIndication={convertTodayRecipe.recipeIndication}
-            />
-            <RecipeCost recipeCost={convertTodayRecipe.recipeCost} />
-            <RecipeMaterial
-                recipeMaterial={convertTodayRecipe.recipeMaterial}
-            />
-            <div className="flex justify-between">
-                <RecipeKeep recipeId={convertTodayRecipe.Id} />
-                <RecipeDetailButton recipeUrl={convertTodayRecipe.recipeUrl} />
+            <div className="">
+                <RecipeTitle recipeTitle={convertTodayRecipe.recipeTitle} />
+                <RecipeDescription
+                    recipeDescription={convertTodayRecipe.recipeDescription}
+                />
+                <RecipeTime
+                    recipeIndication={convertTodayRecipe.recipeIndication}
+                />
+                <RecipeCost recipeCost={convertTodayRecipe.recipeCost} />
+                <RecipeMaterial
+                    recipeMaterial={convertTodayRecipe.recipeMaterial}
+                />
+                <div className="flex justify-between">
+                    <RecipeKeep recipeId={convertTodayRecipe.Id} />
+                    <RecipeDetailButton
+                        recipeUrl={convertTodayRecipe.recipeUrl}
+                    />
+                </div>
             </div>
-        </>
+        </div>
     )
 }
 

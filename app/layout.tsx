@@ -19,7 +19,7 @@ export default function RootLayout({
             >
                 <NextAuthProvider>
                     <Header />
-                    <div className="flex-grow m-[16px]">{children}</div>
+                    <div className="m-[16px] md:px-[200px]">{children}</div>
                     <Navigation />
                     <Footer />
                 </NextAuthProvider>
