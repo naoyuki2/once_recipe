@@ -29,13 +29,17 @@ export const Navigation = async () => {
                     </div>
                 )}
                 {user !== 'guest' ? (
-                    <Link href="/api/auth/signout" className="text-center">
+                    <Link
+                        href="/api/auth/signout"
+                        prefetch={false}
+                        className="text-center"
+                    >
                         <ArrowRightStartOnRectangleIcon className="h-[30px] w-[80px]" />
                         <p>ログアウト</p>
                     </Link>
                 ) : (
                     <div className="text-center">
-                        <Link href="/api/auth/signin">
+                        <Link href="/api/auth/signin" prefetch={false}>
                             <ArrowRightEndOnRectangleIcon className="h-[30px] w-[80px]" />
                             <p>ログイン</p>
                         </Link>
