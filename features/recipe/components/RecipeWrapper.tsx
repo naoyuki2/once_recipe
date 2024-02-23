@@ -1,4 +1,4 @@
-import { getTodayRecipe } from '../api/getTodayRecipe'
+import { getTodayRecipe } from '@/utils/recipe/getTodayRecipe'
 import RecipeDetailButton from './RecipeDetailButton'
 import RecipeThumbnail from './RecipeThumbnail'
 import RecipeTitle from './RecipeTitle'
@@ -7,23 +7,30 @@ import RecipeTime from './RecipeTime'
 import RecipeCost from './RecipeCost'
 import RecipeMaterial from './RecipeMaterial'
 import RecipeKeep from './RecipeKeep'
-import { RecipeNonJsonType } from '@/types/type'
+import { convertRecipe } from '@/utils/recipe/convertRecipe'
+import { Recipe } from '@prisma/client'
 
 const RecipeWrapper = async () => {
-    const todayRecipe: RecipeNonJsonType = await getTodayRecipe()
+    const todayRecipe: Recipe = await getTodayRecipe()
+    const convertTodayRecipe = convertRecipe(todayRecipe)
+
     return (
         <>
-            <RecipeThumbnail foodImageUrl={todayRecipe.foodImageUrl} />
-            <RecipeTitle recipeTitle={todayRecipe.recipeTitle} />
+            <RecipeThumbnail foodImageUrl={convertTodayRecipe.foodImageUrl} />
+            <RecipeTitle recipeTitle={convertTodayRecipe.recipeTitle} />
             <RecipeDescription
-                recipeDescription={todayRecipe.recipeDescription}
+                recipeDescription={convertTodayRecipe.recipeDescription}
             />
-            <RecipeTime recipeIndication={todayRecipe.recipeIndication} />
-            <RecipeCost recipeCost={todayRecipe.recipeCost} />
-            <RecipeMaterial recipeMaterial={todayRecipe.recipeMaterial} />
+            <RecipeTime
+                recipeIndication={convertTodayRecipe.recipeIndication}
+            />
+            <RecipeCost recipeCost={convertTodayRecipe.recipeCost} />
+            <RecipeMaterial
+                recipeMaterial={convertTodayRecipe.recipeMaterial}
+            />
             <div className="flex justify-between">
-                <RecipeKeep recipeId={todayRecipe.Id} />
-                <RecipeDetailButton recipeUrl={todayRecipe.recipeUrl} />
+                <RecipeKeep recipeId={convertTodayRecipe.Id} />
+                <RecipeDetailButton recipeUrl={convertTodayRecipe.recipeUrl} />
             </div>
         </>
     )

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getUser } from '@/utils/getUser'
+import { getUser } from '@/lib/next-auth/getUser'
 import once_recipe_text from '@/public/once_recipe_text.png'
 
 const Header = async () => {

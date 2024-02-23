@@ -1,4 +1,4 @@
-import { getUser } from '@/utils/getUser'
+import { getUser } from '@/lib/next-auth/getUser'
 import {
     BookmarkIcon,
     BookmarkSlashIcon,

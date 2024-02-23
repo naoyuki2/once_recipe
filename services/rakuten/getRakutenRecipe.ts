@@ -1,4 +1,4 @@
-import { allCategory } from '@/utils/categoryData'
+import { allCategory } from '@/data/categoryData'
 
 export const fetchRakutenRecipe = async () => {
     console.log('RakutenRecipeをたたく')
@@ -15,7 +15,6 @@ export const fetchRakutenRecipe = async () => {
         const data = await res.json()
         return data.result[randomRecipeNumber]
     } catch (error) {
-        console.error(error)
-        throw new Error('Failed to fetch RAKUTEN API')
+        throw new Error('fetchRakutenRecipe:' + error)
     }
 }
