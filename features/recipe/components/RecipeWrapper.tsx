@@ -6,7 +6,7 @@ import RecipeDescription from './RecipeDescription'
 import RecipeTime from './RecipeTime'
 import RecipeCost from './RecipeCost'
 import RecipeMaterial from './RecipeMaterial'
-import RecipeKeep from './RecipeKeep'
+import RecipeKeep from './RecipeBookmarkButton'
 import { convertRecipe } from '@/utils/recipe/convertRecipe'
 import { Recipe } from '@prisma/client'
 
