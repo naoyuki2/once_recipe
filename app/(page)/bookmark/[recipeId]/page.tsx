@@ -10,6 +10,11 @@ export default async function bookmarkRecipe({
     const { recipeId } = params
     const recipe = await getRecipeById({ recipeId })
 
+    if (typeof recipe === 'number') {
+        // recipeが見つからなかった場合の処理をここに書く
+        return null
+    }
+
     return (
         <>
             <Suspense fallback="<p>loading...</p>">

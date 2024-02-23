@@ -1,5 +1,5 @@
 import { navigateBookmark } from '@/app/actions'
-import { getUserId } from '@/utils/getUser'
+import { getUserId } from '@/lib/next-auth/getUser'
 
 const RecipeDetailButton = async ({ recipeId }: { recipeId: number }) => {
     const userId = await getUserId()
