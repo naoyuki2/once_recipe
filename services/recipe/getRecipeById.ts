@@ -6,6 +6,7 @@ export async function getRecipeById({
 }: {
     recipeId: number
 }): Promise<Recipe | null> {
+    console.log('getRecipeById')
     try {
         const bookmarkRecipe: Recipe | null = await prisma.recipe.findUnique({
             where: {

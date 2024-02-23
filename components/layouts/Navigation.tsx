@@ -11,7 +11,7 @@ import Link from 'next/link'
 export const Navigation = async () => {
     const user = await getUser()
     return (
-        <nav className="fixed inset-x-0 bottom-0 bg-[#eaeced] text-[#40484c] h-[66px]">
+        <nav className="fixed inset-x-0 bottom-0 bg-[#eaeced] text-[#40484c] h-[60px]">
             <div className="flex items-center justify-between p-2">
                 <Link href="/" className="text-center">
                     <HomeIcon className="h-[30px] w-[80px]" />
