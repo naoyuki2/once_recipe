@@ -1,4 +1,3 @@
-import { getTodayRecipe } from '@/utils/recipe/getTodayRecipe'
 import RecipeDetailButton from './RecipeDetailButton'
 import RecipeThumbnail from './RecipeThumbnail'
 import RecipeTitle from './RecipeTitle'
@@ -7,13 +6,13 @@ import RecipeTime from './RecipeTime'
 import RecipeCost from './RecipeCost'
 import RecipeMaterial from './RecipeMaterial'
 import RecipeKeep from './RecipeBookmarkButton'
-import { convertRecipe } from '@/utils/recipe/convertRecipe'
-import { Recipe } from '@prisma/client'
+import { RecipeNonJsonType } from '@/types/type'
 
-const RecipeWrapper = async () => {
-    const todayRecipe: Recipe = await getTodayRecipe()
-    const convertTodayRecipe = convertRecipe(todayRecipe)
+type Props = {
+    convertTodayRecipe: RecipeNonJsonType
+}
 
+const RecipeWrapper = async ({ convertTodayRecipe }: Props) => {
     return (
         <>
             <RecipeThumbnail foodImageUrl={convertTodayRecipe.foodImageUrl} />
