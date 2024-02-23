@@ -10,8 +10,6 @@ import RecipeKeep from './RecipeBookmarkButton'
 import { convertRecipe } from '@/utils/recipe/convertRecipe'
 import { Recipe } from '@prisma/client'
 
-export const revalidate = 3600
-
 const RecipeWrapper = async () => {
     const todayRecipe: Recipe = await getTodayRecipe()
     const convertTodayRecipe = convertRecipe(todayRecipe)
