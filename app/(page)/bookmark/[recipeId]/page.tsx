@@ -1,24 +1,24 @@
-import { getRecipeById } from '@/features/recipe/api/getRecipeById'
+import { getRecipeById } from '@/services/recipe/getRecipeById'
 import BookmarkRecipeWrapper from '@/features/bookmark/components/BookmarkRecipeWrapper'
 import { Suspense } from 'react'
+import { convertRecipe } from '@/utils/recipe/convertRecipe'
 
 export default async function bookmarkRecipe({
     params,
 }: {
-    params: { recipeId: number }
+    params: { recipeId: string }
 }) {
-    const { recipeId } = params
+    const recipeId = Number(params.recipeId)
     const recipe = await getRecipeById({ recipeId })
-
-    if (typeof recipe === 'number') {
-        // recipeが見つからなかった場合の処理をここに書く
-        return null
+    if (recipe === null) {
+        throw new Error('recipeが取得できませんでした')
     }
+    const convertedRecipe = convertRecipe(recipe)
 
     return (
         <>
             <Suspense fallback="<p>loading...</p>">
-                <BookmarkRecipeWrapper recipe={recipe} />
+                <BookmarkRecipeWrapper recipe={convertedRecipe} />
             </Suspense>
         </>
     )

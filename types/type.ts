@@ -14,7 +14,6 @@ type RecipeNonJsonType = {
     recipeMaterial: string[]
     recipeUrl: string
     foodImageUrl: string
-    createdAt: string
 }
 
 export type { UserType, RecipeNonJsonType }
