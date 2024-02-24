@@ -18,7 +18,7 @@ export default async function bookmarkRecipe({
 
     return (
         <>
-            <Suspense fallback={<Skeleton />}>
+            <Suspense fallback="<div>loading</div>">
                 <BookmarkRecipeWrapper recipe={convertedRecipe} />
             </Suspense>
         </>
