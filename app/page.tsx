@@ -21,10 +21,17 @@ export const metadata: Metadata = {
     },
 }
 
-export const revalidate = 3600
+// export const revalidate = 3600
 
 export default async function Page() {
-    const todayRecipe: Recipe = await getTodayRecipe()
+    const todayRecipe: Recipe = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/archive`,
+        {
+            next: {
+                revalidate: 3600,
+            },
+        },
+    ).then((res) => res.json())
     const convertTodayRecipe = convertRecipe(todayRecipe)
     return (
         <>
