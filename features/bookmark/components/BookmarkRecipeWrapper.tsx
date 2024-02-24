@@ -14,18 +14,22 @@ type Props = {
 
 const bookmarkRecipeWrapper = ({ recipe }: Props) => {
     return (
-        <>
+        <div className="xl:flex xl:gap-[25px]">
             <RecipeThumbnail foodImageUrl={recipe.foodImageUrl} />
-            <RecipeTitle recipeTitle={recipe.recipeTitle} />
-            <RecipeDescription recipeDescription={recipe.recipeDescription} />
-            <RecipeTime recipeIndication={recipe.recipeIndication} />
-            <RecipeCost recipeCost={recipe.recipeCost} />
-            <RecipeMaterial recipeMaterial={recipe.recipeMaterial} />
-            <div className="flex justify-between">
-                <BookmarkDeleteButton recipeId={recipe.Id} />
-                <RecipeDetailButton recipeUrl={recipe.recipeUrl} />
+            <div>
+                <RecipeTitle recipeTitle={recipe.recipeTitle} />
+                <RecipeDescription
+                    recipeDescription={recipe.recipeDescription}
+                />
+                <RecipeTime recipeIndication={recipe.recipeIndication} />
+                <RecipeCost recipeCost={recipe.recipeCost} />
+                <RecipeMaterial recipeMaterial={recipe.recipeMaterial} />
+                <div className="flex justify-between">
+                    <BookmarkDeleteButton recipeId={recipe.Id} />
+                    <RecipeDetailButton recipeUrl={recipe.recipeUrl} />
+                </div>
             </div>
-        </>
+        </div>
     )
 }
 
