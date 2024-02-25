@@ -9,6 +9,7 @@ import {
     BookmarkSlashIcon,
     HomeIcon,
 } from '@heroicons/react/24/solid'
+import { BmSlashIcon } from '@/features/navigation/BmSlashIcon'
 
 const Header = async () => {
     const user = await getUser()
@@ -38,10 +39,7 @@ const Header = async () => {
                             <p>保存</p>
                         </Link>
                     ) : (
-                        <div className="hidden md:block text-center">
-                            <BookmarkSlashIcon className="h-[30px] w-[80px]" />
-                            <p>保存</p>
-                        </div>
+                        <BmSlashIcon />
                     )}
                     {user !== 'guest' ? (
                         <Link
@@ -53,7 +51,7 @@ const Header = async () => {
                             <p>ログアウト</p>
                         </Link>
                     ) : (
-                        <div className="text-center">
+                        <div className="hidden md:block text-center">
                             <Link href="/api/auth/signin" prefetch={false}>
                                 <ArrowRightEndOnRectangleIcon className="h-[30px] w-[80px]" />
                                 <p>ログイン</p>
