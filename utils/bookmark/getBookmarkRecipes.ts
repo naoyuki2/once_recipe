@@ -1,14 +1,19 @@
-import { getUserId } from '@/lib/next-auth/getUser'
-import { getBookmarkRecipeIdsByUseId } from '@/services/bookmark/getBookmarksByUserId'
-import { getRecipesByMultipleIds } from '@/services/recipe/getRecipesByMultipleIds'
-import { Recipe } from '@prisma/client'
+import { getBookmark } from '@/features/bookmark/api/getBookmark'
+import { getRecipesByMultipleIds } from '@/features/recipe/api/getRecipesByMultipleIds'
+import { Bookmark, Recipe } from '@prisma/client'
 
 export const getBookmarkRecipes = async (): Promise<Recipe[]> => {
     try {
-        const userId = await getUserId()
-        const bookmarkRecipeIds = await getBookmarkRecipeIdsByUseId({ userId })
+        const bookmarks = await getBookmark()
+        if (bookmarks.length === 0) {
+            return []
+        }
+        const bookmarkIds = bookmarks.map(
+            (bookmark: Bookmark) => bookmark.RecipeId,
+        )
+
         const bookmarkRecipes = await getRecipesByMultipleIds({
-            bookmarkRecipeIds,
+            bookmarkIds: bookmarkIds,
         })
         return bookmarkRecipes
     } catch (error) {

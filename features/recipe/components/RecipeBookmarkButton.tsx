@@ -1,10 +1,10 @@
 import { actionDeleteBookmark, actionPostBookmark } from '@/app/actions'
 import { getUserId } from '@/lib/next-auth/getUser'
-import { getIsBookmarked } from '@/services/bookmark/getIsBookmarked'
+import { getIsBookmark } from '@/utils/bookmark/getIsBookmark'
 
 const RecipeDetailButton = async ({ recipeId }: { recipeId: number }) => {
     const userId = await getUserId()
-    const isBookmarked = await getIsBookmarked({ recipeId, userId })
+    const isBookmarked = await getIsBookmark({ recipeId, userId })
 
     const actionPostBookmarkWithRecipe = actionPostBookmark.bind(
         null,

@@ -9,30 +9,32 @@ import RecipeKeep from './RecipeBookmarkButton'
 import { RecipeNonJsonType } from '@/types/type'
 
 type Props = {
-    convertTodayRecipe: RecipeNonJsonType
+    todayRecipe: RecipeNonJsonType
 }
 
-const RecipeWrapper = async ({ convertTodayRecipe }: Props) => {
+const RecipeWrapper = async ({ todayRecipe }: Props) => {
+    const {
+        foodImageUrl,
+        recipeTitle,
+        recipeDescription,
+        recipeIndication,
+        recipeCost,
+        recipeMaterial,
+        recipeUrl,
+        Id,
+    } = todayRecipe
     return (
         <div className="xl:flex xl:gap-[25px]">
-            <RecipeThumbnail foodImageUrl={convertTodayRecipe.foodImageUrl} />
+            <RecipeThumbnail foodImageUrl={foodImageUrl} />
             <div className="">
-                <RecipeTitle recipeTitle={convertTodayRecipe.recipeTitle} />
-                <RecipeDescription
-                    recipeDescription={convertTodayRecipe.recipeDescription}
-                />
-                <RecipeTime
-                    recipeIndication={convertTodayRecipe.recipeIndication}
-                />
-                <RecipeCost recipeCost={convertTodayRecipe.recipeCost} />
-                <RecipeMaterial
-                    recipeMaterial={convertTodayRecipe.recipeMaterial}
-                />
+                <RecipeTitle recipeTitle={recipeTitle} />
+                <RecipeDescription recipeDescription={recipeDescription} />
+                <RecipeTime recipeIndication={recipeIndication} />
+                <RecipeCost recipeCost={recipeCost} />
+                <RecipeMaterial recipeMaterial={recipeMaterial} />
                 <div className="flex justify-between">
-                    <RecipeKeep recipeId={convertTodayRecipe.Id} />
-                    <RecipeDetailButton
-                        recipeUrl={convertTodayRecipe.recipeUrl}
-                    />
+                    <RecipeKeep recipeId={Id} />
+                    <RecipeDetailButton recipeUrl={recipeUrl} />
                 </div>
             </div>
         </div>

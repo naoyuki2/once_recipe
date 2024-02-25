@@ -1,8 +1,7 @@
-import { getRecipeById } from '@/services/recipe/getRecipeById'
 import BookmarkRecipeWrapper from '@/features/bookmark/components/BookmarkRecipeWrapper'
 import { Suspense } from 'react'
 import { convertRecipe } from '@/utils/recipe/convertRecipe'
-import Skeleton from '@/features/recipe/components/Skeleton'
+import { getRecipeById } from '@/features/recipe/api/getRecipeById'
 
 export default async function bookmarkRecipe({
     params,
@@ -14,7 +13,7 @@ export default async function bookmarkRecipe({
     if (recipe === null) {
         throw new Error('recipeが取得できませんでした')
     }
-    const convertedRecipe = convertRecipe(recipe)
+    const convertedRecipe = convertRecipe(recipe[0])
 
     return (
         <>
