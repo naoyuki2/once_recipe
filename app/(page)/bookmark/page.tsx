@@ -1,6 +1,11 @@
 import BookmarkWrapper from '@/features/bookmark/components/BookmarkWrapper'
 import { getBookmarkRecipes } from '@/utils/bookmark/getBookmarkRecipes'
 import { Recipe } from '@prisma/client'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: '保存したレシピ一覧',
+}
 
 export default async function bookmark() {
     const bookmarkRecipes = await getBookmarkRecipes()

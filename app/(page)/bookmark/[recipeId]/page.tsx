@@ -2,7 +2,11 @@ import { getRecipeById } from '@/services/recipe/getRecipeById'
 import BookmarkRecipeWrapper from '@/features/bookmark/components/BookmarkRecipeWrapper'
 import { Suspense } from 'react'
 import { convertRecipe } from '@/utils/recipe/convertRecipe'
-import Skeleton from '@/features/recipe/components/Skeleton'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: '保存したレシピ',
+}
 
 export default async function bookmarkRecipe({
     params,

@@ -1,7 +1,7 @@
+import { BmSlashIcon } from '@/features/navigation/BmSlashIcon'
 import { getUser } from '@/lib/next-auth/getUser'
 import {
     BookmarkIcon,
-    BookmarkSlashIcon,
     HomeIcon,
     ArrowRightEndOnRectangleIcon,
     ArrowRightStartOnRectangleIcon,
@@ -23,10 +23,7 @@ export const Navigation = async () => {
                         <p>保存</p>
                     </Link>
                 ) : (
-                    <div className="text-center">
-                        <BookmarkSlashIcon className="h-[30px] w-[80px]" />
-                        <p>保存</p>
-                    </div>
+                    <BmSlashIcon />
                 )}
                 {user !== 'guest' ? (
                     <Link
