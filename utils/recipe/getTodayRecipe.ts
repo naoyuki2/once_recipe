@@ -4,6 +4,7 @@ import { getRecipeById } from '@/features/recipe/api/getRecipeById'
 import { postRecipe } from '@/features/recipe/api/postRecipe'
 import { postArchive } from '@/features/archive/api/postArchive'
 import { Recipe } from '@prisma/client'
+import { revalidatePath } from 'next/cache'
 
 export const getTodayRecipe = async (): Promise<Recipe> => {
     const archive = await getArchive()
@@ -13,6 +14,7 @@ export const getTodayRecipe = async (): Promise<Recipe> => {
         const newTodayRecipe = await fetchRakutenRecipe()
         const recipeId = await postRecipe({ recipe: newTodayRecipe })
         await postArchive(recipeId.Id)
+        revalidatePath('/api/archive')
         return newTodayRecipe
     } else {
         return todayRecipe[0]
