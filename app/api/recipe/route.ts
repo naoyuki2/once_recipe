@@ -14,7 +14,6 @@ export async function POST(request: Request) {
         recipeMaterial,
         recipeUrl,
     } = body
-
     try {
         const postRecipe: Recipe = await prisma.recipe.create({
             data: {

@@ -4,7 +4,7 @@ export const getArchive = async (): Promise<Archive> => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/archive`, {
             next: {
-                revalidate: 60,
+                revalidate: 3600,
             },
         })
         if (!res.ok) {

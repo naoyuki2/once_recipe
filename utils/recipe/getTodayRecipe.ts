@@ -8,10 +8,11 @@ import { Recipe } from '@prisma/client'
 export const getTodayRecipe = async (): Promise<Recipe> => {
     const archive = await getArchive()
     const todayRecipe = await getRecipeById({ recipeId: archive.RecipeId })
-    if (todayRecipe === null) {
+    if (todayRecipe.length === 0) {
+        console.log('archiveはなかった')
         const newTodayRecipe = await fetchRakutenRecipe()
-        const recipeId = await postRecipe(newTodayRecipe)
-        await postArchive(recipeId)
+        const recipeId = await postRecipe({ recipe: newTodayRecipe })
+        await postArchive(recipeId.Id)
         return newTodayRecipe
     } else {
         return todayRecipe[0]

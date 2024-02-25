@@ -4,7 +4,7 @@ type Props = {
     recipe: Recipe
 }
 
-export const postRecipe = async ({ recipe }: Props) => {
+export const postRecipe = async ({ recipe }: Props): Promise<Recipe> => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/recipe`, {
             method: 'POST',
