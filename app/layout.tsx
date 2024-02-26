@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: '今日の一皿',
         description:
-            '「今日の一皿」は、毎日新たなレシピを提供するサービスです。たくさんのレシピとの出会いを提供します。',
+            '「今日の一皿」は、毎日新たなレシピを一つ提供するサービスです。たくさんのレシピとの出会いを提供します。',
     },
 }
 
