@@ -3,9 +3,11 @@ const shimmer =
 
 const loading = () => {
     return (
-        <div
-            className={`${shimmer} relative rounded-[20px] bg-gray-200 w-full h-[300px] border-[8px] border-neutral-300`}
-        ></div>
+        <div className="h-screen">
+            <div
+                className={`${shimmer} relative rounded-[20px] bg-gray-200 w-full h-[50%] border-[8px] border-neutral-300`}
+            ></div>
+        </div>
     )
 }
 

@@ -10,7 +10,13 @@ export const metadata: Metadata = {
 export default async function bookmark() {
     const bookmarkRecipes = await getBookmarkRecipes()
     if (bookmarkRecipes.length === 0) {
-        return <p>ブックマークしているレシピはないようです。</p>
+        return (
+            <div className="flex items-center justify-center h-[500px]">
+                <p className="text-[16px] md:text-[20px] text-gray-700">
+                    保存しているレシピはないようです。
+                </p>
+            </div>
+        )
     }
     return (
         <div className="flex flex-col gap-3 h-full">

@@ -6,7 +6,6 @@ import {
     ArrowRightEndOnRectangleIcon,
     ArrowRightStartOnRectangleIcon,
     BookmarkIcon,
-    BookmarkSlashIcon,
     HomeIcon,
 } from '@heroicons/react/24/solid'
 import { BmSlashIcon } from '@/features/navigation/BmSlashIcon'
@@ -16,7 +15,10 @@ const Header = async () => {
     return (
         <header className="bg-[#eaeced] text-[#191c1d] h-[66px] p-2">
             <nav className="flex items-center justify-between">
-                <Link href="/" className="flex items-center">
+                <Link
+                    href="/"
+                    className="flex items-center hover:bg-gray-50 rounded-md transition-all duration-300 ease-in-out"
+                >
                     <Image
                         width={150}
                         height={100}
@@ -26,32 +28,37 @@ const Header = async () => {
                     />
                 </Link>
                 <div className="md:flex md:gap-[40px]">
-                    <Link href="/" className="hidden md:block text-center">
+                    <Link
+                        href="/"
+                        className="hidden md:block text-center hover:bg-gray-50 rounded-md transition-all duration-300 ease-in-out"
+                    >
                         <HomeIcon className="h-[30px] w-[80px]" />
                         <p>ホーム</p>
                     </Link>
                     {user !== 'guest' ? (
                         <Link
                             href="/bookmark"
-                            className="hidden md:block text-center"
+                            className="hidden md:block text-center hover:bg-gray-50 rounded-md transition-all duration-300 ease-in-out"
                         >
                             <BookmarkIcon className="h-[30px] w-[80px]" />
                             <p>保存</p>
                         </Link>
                     ) : (
-                        <BmSlashIcon />
+                        <div className="hidden md:block text-center hover:bg-gray-50 rounded-md transition-all duration-300 ease-in-out">
+                            <BmSlashIcon />
+                        </div>
                     )}
                     {user !== 'guest' ? (
                         <Link
                             href="/api/auth/signout"
                             prefetch={false}
-                            className="hidden md:block text-center"
+                            className="hidden md:block text-center hover:bg-gray-50 rounded-md transition-all duration-300 ease-in-out"
                         >
                             <ArrowRightStartOnRectangleIcon className="h-[30px] w-[80px]" />
                             <p>ログアウト</p>
                         </Link>
                     ) : (
-                        <div className="hidden md:block text-center">
+                        <div className="hidden md:block text-center hover:bg-gray-50 rounded-md transition-all duration-300 ease-in-out">
                             <Link href="/api/auth/signin" prefetch={false}>
                                 <ArrowRightEndOnRectangleIcon className="h-[30px] w-[80px]" />
                                 <p>ログイン</p>

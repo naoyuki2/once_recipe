@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const Footer = () => {
     return (
-        <div className="p-5 h-full bg-[#e1e3e4] text-[#40484c] flex flex-col items-center justify-center gap-[24px] pb-[75px]">
+        <div className="p-5 bg-[#e1e3e4] text-[#40484c] flex flex-col items-center justify-center gap-[24px] pb-[75px]">
             <p className="font-bold text-[16px] md:text-[20px] hover:underline">
                 {/* Rakuten Web Services Attribution Snippet FROM HERE */}
 
@@ -18,7 +18,10 @@ const Footer = () => {
                 Created by naoyuki
             </p>
             <div className="flex gap-[32px] md:gap-[48px]">
-                <Link href="https://twitter.com/hols2036">
+                <Link
+                    href="https://twitter.com/hols2036"
+                    className="hover:scale-110 transition-transform"
+                >
                     <Image
                         src={x_icon}
                         alt="x_icon"
@@ -27,7 +30,10 @@ const Footer = () => {
                         className="w-[40px] h-[40px] md:w-[50px] md:h-[50px]"
                     />
                 </Link>
-                <Link href="https://qiita.com/naoyuki2">
+                <Link
+                    href="https://qiita.com/naoyuki2"
+                    className="hover:scale-110 transition-transform"
+                >
                     <Image
                         src={qiita_icon}
                         alt="qiita_icon"

@@ -16,7 +16,7 @@ const BookmarkDeleteButton = async ({ recipeId }: { recipeId: number }) => {
                     action={actionDeleteBookmarkWithId}
                     className="flex justify-end"
                 >
-                    <button className="bg-red-500 px-[24px] py-[8px] text-gray-100 rounded-[12px] text-[16px] md:text-[20px] text-center">
+                    <button className="bg-red-500 px-[24px] py-[8px] text-gray-100 rounded-[12px] text-[16px] md:text-[20px] text-center  hover:bg-red-400 transition-all duration-300 ease-in-out">
                         保存から削除
                     </button>
                 </form>

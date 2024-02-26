@@ -5,7 +5,7 @@ const RecipeDetailButton = ({ recipeUrl }: { recipeUrl: string }) => {
         <div className="flex justify-end">
             <Link
                 href={recipeUrl}
-                className="bg-green-700 px-[24px] py-[8px] text-gray-100 rounded-[12px] text-[16px] md:text-[20px] text-center"
+                className="bg-green-700 px-[24px] py-[8px] text-gray-100 rounded-[12px] text-[16px] md:text-[20px] text-center hover:bg-green-600 transition-all duration-300 ease-in-out"
             >
                 詳しく見る
             </Link>

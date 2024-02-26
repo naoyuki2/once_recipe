@@ -24,7 +24,7 @@ const RecipeWrapper = async ({ todayRecipe }: Props) => {
         Id,
     } = todayRecipe
     return (
-        <div className="xl:flex xl:gap-[25px]">
+        <div className="xl:grid xl:grid-cols-2 xl:gap-4">
             <RecipeThumbnail foodImageUrl={foodImageUrl} />
             <div className="">
                 <RecipeTitle recipeTitle={recipeTitle} />

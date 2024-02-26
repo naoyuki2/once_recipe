@@ -2,13 +2,12 @@ import Image from 'next/image'
 
 const RecipeThumbnail = ({ foodImageUrl }: { foodImageUrl: string }) => {
     return (
-        <div className="shrink-0 rounded-[20px] w-full md:w-[50%] xl:h-[200px]">
+        <div className="rounded-[20px]">
             <Image
                 src={foodImageUrl}
                 alt="food image"
                 width={300}
                 height={200}
-                sizes="100vw"
                 style={{
                     width: '100%',
                     height: 'auto',
