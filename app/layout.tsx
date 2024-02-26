@@ -29,6 +29,14 @@ export const metadata: Metadata = {
         description:
             '「今日の一皿」は、毎日新たなレシピを一つ提供するサービスです。たくさんのレシピとの出会いを提供します。',
     },
+    openGraph: {
+        title: '今日の一皿',
+        description:
+            '「今日の一皿」は、毎日新たなレシピを一つ提供するサービスです。たくさんのレシピとの出会いを提供します。',
+        url: `${process.env.NEXTAUTH_URL}`,
+        siteName: '今日の一皿',
+        type: 'website',
+    },
 }
 
 export default function RootLayout({
