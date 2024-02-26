@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         default: '今日の一皿',
     },
     description:
-        '「今日の一皿」は、毎日新たなレシピを提供するサービスです。たくさんのレシピとの出会いを提供します。',
+        '「今日の一皿」は、毎日新たなレシピを一つ提供するサービスです。たくさんのレシピとの出会いを提供します。',
     applicationName: '今日の一皿',
     keywords: ['今日の一皿', 'レシピ', '料理', '食材', '一皿', '献立'],
     formatDetection: {
