@@ -4,15 +4,16 @@ import { Archive } from '@prisma/client'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
+    const today = new Date()
     console.log('GET /archive')
-    console.log(startOfDay)
-    console.log(endOfDay)
+    console.log(startOfDay(today))
+    console.log(endOfDay(today))
     try {
         const archive: Archive | null = await prisma.archive.findFirst({
             where: {
                 CreatedAt: {
-                    gte: startOfDay,
-                    lte: endOfDay,
+                    gte: startOfDay(today),
+                    lte: endOfDay(today),
                 },
             },
         })
