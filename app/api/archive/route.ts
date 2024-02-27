@@ -5,6 +5,8 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
     console.log('GET /archive')
+    console.log(startOfDay)
+    console.log(endOfDay)
     try {
         const archive: Archive | null = await prisma.archive.findFirst({
             where: {
