@@ -3,7 +3,9 @@ import { Archive } from '@prisma/client'
 export const getArchive = async (): Promise<Archive> => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/archive`, {
-            cache: 'no-store',
+            next: {
+                revalidate: 3600,
+            },
         })
         if (!res.ok) {
             throw new Error(`Server responded with ${res.status}`)
